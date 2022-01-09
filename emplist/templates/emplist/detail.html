@@ -1,0 +1,24 @@
+
+	<form action="{% url 'emplist:genpptx' employee.id %}" method="post">
+	{% csrf_token %}
+		<p>First Name</p>
+		<ul>
+			{{ employee.firstname_text }}
+		</ul>
+		<p>Last Name</p>
+		<ul>
+			{{ employee.lastname_text }}
+		</ul>
+		<p>Address</p>
+		<ul>
+			{{ employee.address_text }}
+		</ul>
+		<p>Phone</p>
+		<ul>
+			{{ employee.phone_text }}
+		</ul>
+
+		<input type="submit" value="Generate pptx">
+		<li><a href="{% url 'emplist:index' %}">Back to employee list</a></li>
+	</form>
+

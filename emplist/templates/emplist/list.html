@@ -1,0 +1,12 @@
+{% if employee_list %}
+	<ul>
+	{% for emp in employee_list %}
+		<li><a href="/emplist/{{ emp.id }}/detail">{{ emp }}</a></li>
+	{% endfor %}
+	</ul>
+{% else %}
+	<p>No employees are available.</p>
+{% endif %}
+
+	<li><a href="{% url 'emplist:registform' %}">regist</a></li>
+

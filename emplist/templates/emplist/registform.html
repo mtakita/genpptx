@@ -1,0 +1,24 @@
+
+	<form action="{% url 'emplist:regist' %}" method="post">
+	{% csrf_token %}
+		<p>First Name</p>
+		<ul>
+			<input type="text" name="firstname" >
+		</ul>
+		<p>Last Name</p>
+		<ul>
+			<input type="text" name="lastname" >
+		</ul>
+		<p>Address</p>
+		<ul>
+			<input type="text" name="address" >
+		</ul>
+		<p>Phone</p>
+		<ul>
+			<input type="text" name="phone" >
+		</ul>
+
+		<input type="submit" value="Register">
+		<li><a href="{% url 'emplist:index' %}">Back to employee list</a></li>
+	</form>
+
