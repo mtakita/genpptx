@@ -1,0 +1,14 @@
+{% if pptx_list %}
+        <ul>
+        {% for pptx in pptx_list %}
+                <li><a href="/pptxlist/{{ pptx.id }}/detail">{{ pptx }}</a></li>
+        {% endfor %}
+        </ul>
+{% else %}
+        <p>No pptxes are available.</p>
+{% endif %}
+
+        <li><a href="{% url 'pptxlist:uploadform' %}">upload</a></li>
+
+~                                                                                                                                                     
+~                                                                        
