@@ -12,6 +12,8 @@ from django.shortcuts import get_object_or_404, render
 
 from .models import Employee
 
+from thumbnail import generate_thumbnail
+
 def index(request):
 	employee_list = Employee.objects.all()
 	return render(request, 'emplist/list.html', {'employee_list': employee_list })
@@ -57,8 +59,22 @@ def genpptx(reqeust, employee_id):
 
 	prs.save('test.pptx')
 
+	######################
+	# Generate a thumbnail
+	######################
+
+	options = {
+		'trim': False,
+		'height': 300,
+		'width': 300,
+		'quality': 85,
+		'type': 'thumbnail'
+	}
+
+	generate_thumbnail('test.pptx', 'thumbnail.png', options )
 
 	file = open("test.pptx", "rb")
+
 	response = HttpResponse(file.read(), content_type="application/pptx")
 	response['Content-Disposition'] = 'attachment; filename=%s' % emp.firstname_text + '.pptx'
 	return response
